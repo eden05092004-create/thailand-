@@ -422,7 +422,18 @@
   .wx-loc-btn svg{width:15px;height:15px;flex:0 0 auto;}
   .wx-loc-btn.active{color:#fff;border-color:transparent;}
   .wx-loc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
-  .wx-updated{font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+  .wx-updated-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+  .wx-updated{font-size:12px;color:var(--text-muted);}
+  .wx-refresh-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--font-heb);font-size:12.5px;font-weight:700;color:var(--accent-ink);
+    background:color-mix(in srgb, var(--accent) 10%, var(--bg-card));
+    border:1px solid var(--accent);border-radius:999px;padding:5px 12px;cursor:pointer;
+  }
+  .wx-refresh-btn svg{width:13px;height:13px;}
+  .wx-refresh-btn:hover{background:color-mix(in srgb, var(--accent) 18%, var(--bg-card));}
+  .wx-refresh-btn.is-loading svg{animation:wxspin 1s linear infinite;}
+  @keyframes wxspin{to{transform:rotate(360deg);}}
   .wx-grid{
     display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;
   }
@@ -1034,7 +1045,13 @@
   <section class="panel" id="panel-weather">
     <div class="callout">תחזית 16 יום מ-<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>, נשלפה בזמן בניית הדשבורד — <strong>לא מתעדכנת אוטומטית בדפדפן</strong> (עמוד סטטי ללא גישה לאינטרנט חי). לתחזית עדכנית לגמרי סמוך לטיול, אפשר לבקש ממני לרענן את הנתונים.</div>
     <div class="wx-locations" id="wxLocations"></div>
-    <div class="wx-updated" id="wxUpdated"></div>
+    <div class="wx-updated-row">
+      <div class="wx-updated" id="wxUpdated"></div>
+      <button type="button" id="wxRefreshBtn" class="wx-refresh-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+        רענן מזג אוויר
+      </button>
+    </div>
     <div class="wx-grid" id="wxGrid"></div>
   </section>
 
@@ -1287,6 +1304,11 @@
     { key:'khaosok', label:'קאו סוק', color:'#3D6B52', icon:'<path d="M2 17l5-8 4 5 3-4 8 7H2z"/>' }
   ];
   var hebDow = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+  var wxCoords = {
+    bangkok:[13.7563,100.5018], samui:[9.5018,100.0132], phangan:[9.7380,100.0272],
+    tao:[10.0956,99.8406], khaosok:[8.9151,98.5385]
+  };
+  var currentWxKey = 'samui';
   var wxLocBtns = document.getElementById('wxLocations');
   wxLocations.forEach(function(loc, i){
     var btn = document.createElement('button');
@@ -1297,11 +1319,37 @@
     btn.addEventListener('click', function(){
       wxLocBtns.querySelectorAll('.wx-loc-btn').forEach(function(b){ b.classList.remove('active'); b.style.background=''; });
       btn.classList.add('active'); btn.style.background = loc.color;
+      currentWxKey = loc.key;
       renderWeather(loc.key);
     });
     wxLocBtns.appendChild(btn);
   });
   document.getElementById('wxUpdated').textContent = 'תחזית נשלפה בתאריך ' + WX_FETCHED_AT + ' · שעון תאילנד (GMT+7)';
+
+  var wxRefreshBtn = document.getElementById('wxRefreshBtn');
+  wxRefreshBtn.addEventListener('click', function(){
+    if (typeof fetch !== 'function'){
+      document.getElementById('wxUpdated').textContent = 'רענון חי לא זמין בתצוגה הזו.';
+      return;
+    }
+    wxRefreshBtn.classList.add('is-loading');
+    wxRefreshBtn.disabled = true;
+    var c = wxCoords[currentWxKey];
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude='+c[0]+'&longitude='+c[1]+
+      '&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FBangkok&forecast_days=16';
+    fetch(url).then(function(r){ return r.json(); }).then(function(data){
+      var d = data.daily;
+      wxData[currentWxKey] = { time:d.time.slice(0,15), code:d.weathercode.slice(0,15), max:d.temperature_2m_max.slice(0,15), min:d.temperature_2m_min.slice(0,15), rain:d.precipitation_probability_max.slice(0,15) };
+      renderWeather(currentWxKey);
+      var now = new Date();
+      document.getElementById('wxUpdated').textContent = 'עודכן חי עכשיו (' + now.toLocaleDateString('he-IL') + ' ' + now.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}) + ')';
+    }).catch(function(){
+      document.getElementById('wxUpdated').textContent = 'הרענון החי לא זמין בתצוגה הזו (חסום ע"י המדפדפן/Artifact) — עובד בגרסה המפורסמת באתר.';
+    }).finally(function(){
+      wxRefreshBtn.classList.remove('is-loading');
+      wxRefreshBtn.disabled = false;
+    });
+  });
 
   function renderWeather(key){
     var d = wxData[key];
