@@ -1,0 +1,1501 @@
+<title>תאילנד 27.7–9.8</title>
+<style>
+  :root{
+    --sea-900:#0B2A2C;
+    --sea-800:#0F3436;
+    --sea-700:#123B3D;
+    --lagoon-500:#1FB8AE;
+    --lagoon-400:#4FD1C7;
+    --reef-500:#2F8FD1;
+    --palm-600:#3D6B52;
+    --gold-500:#C9A227;
+    --coral-500:#E8683F;
+    --mist-050:#F7FAF9;
+    --mist-100:#EEF3F1;
+    --ink-900:#12211F;
+
+    --bg: var(--mist-050);
+    --bg-card: #FFFFFF;
+    --bg-card-2: var(--mist-100);
+    --text: var(--ink-900);
+    --text-muted: #55716A;
+    --border: rgba(18,33,31,0.12);
+    --accent: var(--lagoon-500);
+    --accent-ink: #0B7A72;
+    --shadow: 0 1px 2px rgba(18,33,31,.06), 0 8px 24px -12px rgba(18,33,31,.18);
+
+    --chip-boat-text:#0F7A73;
+    --chip-reef-text:#1F5FA0;
+    --chip-palm-text:#2E5A42;
+    --chip-gold-text:#8A6A10;
+    --chip-coral-text:#B84A26;
+    --chip-slate-text:#47606B;
+    --hue-slate:#5B7280;
+
+    --font-heb: "Segoe UI", "Arial Hebrew", "Noto Sans Hebrew", Arial, sans-serif;
+    --font-label: "Bahnschrift SemiCondensed", "Bahnschrift", "Arial Narrow", "Segoe UI", sans-serif;
+    --font-mono: "Consolas", "SFMono-Regular", ui-monospace, Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: var(--sea-900);
+      --bg-card: var(--sea-700);
+      --bg-card-2: var(--sea-800);
+      --text: #E9F2F0;
+      --text-muted: #93B8B1;
+      --border: rgba(233,242,240,0.14);
+      --accent: var(--lagoon-400);
+      --accent-ink: #7CE0D6;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px -10px rgba(0,0,0,.55);
+
+      --chip-boat-text:#7CE0D6;
+      --chip-reef-text:#8FC3F2;
+      --chip-palm-text:#9AD4B0;
+      --chip-gold-text:#EACB6C;
+      --chip-coral-text:#F2A183;
+      --chip-slate-text:#B9CBD2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: var(--sea-900);
+    --bg-card: var(--sea-700);
+    --bg-card-2: var(--sea-800);
+    --text: #E9F2F0;
+    --text-muted: #93B8B1;
+    --border: rgba(233,242,240,0.14);
+    --accent: var(--lagoon-400);
+    --accent-ink: #7CE0D6;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px -10px rgba(0,0,0,.55);
+    --chip-boat-text:#7CE0D6;
+    --chip-reef-text:#8FC3F2;
+    --chip-palm-text:#9AD4B0;
+    --chip-gold-text:#EACB6C;
+    --chip-coral-text:#F2A183;
+    --chip-slate-text:#B9CBD2;
+  }
+  :root[data-theme="light"]{
+    --bg: var(--mist-050);
+    --bg-card: #FFFFFF;
+    --bg-card-2: var(--mist-100);
+    --text: var(--ink-900);
+    --text-muted: #55716A;
+    --border: rgba(18,33,31,0.12);
+    --accent: var(--lagoon-500);
+    --accent-ink: #0B7A72;
+    --shadow: 0 1px 2px rgba(18,33,31,.06), 0 8px 24px -12px rgba(18,33,31,.18);
+    --chip-boat-text:#0F7A73;
+    --chip-reef-text:#1F5FA0;
+    --chip-palm-text:#2E5A42;
+    --chip-gold-text:#8A6A10;
+    --chip-coral-text:#B84A26;
+    --chip-slate-text:#47606B;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-heb);
+    direction:rtl;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100%;
+  }
+  ::selection{background:var(--accent);color:var(--sea-900);}
+
+  a{color:inherit;}
+
+  .app{max-width:920px;margin:0 auto;padding-bottom:64px;}
+
+  /* ---------- Header band ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 160% at 100% 0%, color-mix(in srgb, var(--lagoon-500) 10%, transparent), transparent 55%),
+      var(--bg-card);
+    color:var(--text);
+    padding:28px 20px 22px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .hero-eyebrow{
+    font-family:var(--font-label);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:11.5px;
+    color:var(--accent-ink);
+    font-weight:700;
+  }
+  .hero-title{
+    font-size:clamp(26px,5vw,34px);
+    font-weight:700;
+    margin:4px 0 2px;
+    text-wrap:balance;
+    color:var(--text);
+  }
+  .hero-sub{color:var(--text-muted);font-size:14.5px;}
+  .countdown{
+    background:var(--bg-card-2);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:10px 16px;
+    text-align:center;
+    min-width:108px;
+  }
+  .countdown .num{
+    font-family:var(--font-label);
+    font-variant-numeric:tabular-nums;
+    font-size:26px;
+    font-weight:700;
+    color:var(--accent-ink);
+    line-height:1;
+  }
+  .countdown .lbl{font-size:11px;color:var(--text-muted);margin-top:4px;}
+
+  /* route strip */
+  .route{
+    display:flex;align-items:center;gap:6px;
+    margin-top:22px;overflow-x:auto;padding-bottom:4px;
+  }
+  .route-node{
+    display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto;
+  }
+  .route-dot{
+    width:24px;height:24px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--bg-card-2);
+    border:1px solid var(--border);
+    box-shadow:0 0 0 4px color-mix(in srgb, var(--lagoon-500) 12%, transparent);
+  }
+  .route-dot svg{width:14px;height:14px;color:var(--accent-ink);}
+  .route-node.is-start .route-dot,.route-node.is-end .route-dot{background:var(--accent);border-color:var(--accent);}
+  .route-node.is-start .route-dot svg,.route-node.is-end .route-dot svg{color:#fff;}
+  .route-label{
+    font-family:var(--font-label);
+    font-size:11.5px;letter-spacing:.02em;
+    color:var(--text-muted);white-space:nowrap;
+  }
+  .route-line{flex:1 1 24px;height:2px;background:linear-gradient(90deg,color-mix(in srgb, var(--lagoon-500) 20%, transparent),color-mix(in srgb, var(--lagoon-500) 55%, transparent));min-width:20px;}
+
+  /* ---------- Tabs ---------- */
+  .tabs{
+    display:flex;gap:4px;padding:14px 20px 0;
+    position:sticky;top:0;background:var(--bg);z-index:5;
+    border-bottom:1px solid var(--border);
+    overflow-x:auto;
+  }
+  .tab-btn{
+    font-family:var(--font-heb);
+    font-size:14.5px;font-weight:600;
+    color:var(--text-muted);
+    background:transparent;border:none;
+    padding:10px 14px 12px;cursor:pointer;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+  }
+  .tab-btn:hover{color:var(--text);}
+  .tab-btn.active{color:var(--accent-ink);border-bottom-color:var(--accent);}
+  .tab-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+  .panel{display:none;padding:22px 20px 0;}
+  .panel.active{display:block;}
+
+  /* ---------- Segment / timeline ---------- */
+  .segment{margin-bottom:30px;}
+  .segment-banner{
+    width:100%;height:128px;border-radius:16px;overflow:hidden;
+    margin-bottom:14px;box-shadow:var(--shadow);
+  }
+  .segment-banner svg{display:block;width:100%;height:100%;}
+  .segment--transit .day-card{border-inline-start:4px solid var(--hue-slate);}
+  .segment--phangan .day-card{border-inline-start:4px solid var(--palm-600);}
+  .segment--tao .day-card{border-inline-start:4px solid var(--reef-500);}
+  .segment--khaosok .day-card{border-inline-start:4px solid var(--palm-600);}
+  .segment--bangkok .day-card{border-inline-start:4px solid var(--coral-500);}
+  .segment--transit .day-badge{background:color-mix(in srgb, var(--hue-slate) 14%, var(--bg-card-2));}
+  .segment--phangan .day-badge{background:color-mix(in srgb, var(--palm-600) 14%, var(--bg-card-2));}
+  .segment--tao .day-badge{background:color-mix(in srgb, var(--reef-500) 14%, var(--bg-card-2));}
+  .segment--khaosok .day-badge{background:color-mix(in srgb, var(--palm-600) 14%, var(--bg-card-2));}
+  .segment--bangkok .day-badge{background:color-mix(in srgb, var(--coral-500) 14%, var(--bg-card-2));}
+  .segment-head{
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);
+  }
+  .segment-title{font-size:19px;font-weight:700;}
+  .segment-dates{
+    font-family:var(--font-label);font-variant-numeric:tabular-nums;
+    font-size:12.5px;color:var(--text-muted);letter-spacing:.02em;
+  }
+  .segment-note{font-size:13.5px;color:var(--text-muted);margin:2px 0 14px;max-width:62ch;}
+
+  .day-list{display:flex;flex-direction:column;gap:10px;position:relative;}
+  .day-card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px 16px;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:14px;
+  }
+  .day-badge{
+    font-family:var(--font-label);
+    background:var(--bg-card-2);
+    border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:8px 4px;text-align:center;
+    border:1px solid var(--border);
+  }
+  .day-badge .d{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;}
+  .day-badge .m{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-top:3px;}
+  .day-badge .w{font-size:10px;color:var(--accent-ink);margin-top:2px;font-weight:700;}
+
+  .day-main .day-title{font-size:15.5px;font-weight:700;margin-bottom:4px;}
+  .day-main .day-loc{font-size:12.5px;color:var(--text-muted);margin-bottom:8px;}
+  .day-main ul{margin:0 0 8px;padding-inline-start:18px;font-size:14px;}
+  .day-main li{margin-bottom:3px;}
+  .day-main li::marker{color:var(--accent-ink);}
+  .day-main a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+  .chip{
+    font-size:11.5px;font-weight:700;
+    padding:3px 9px;border-radius:999px;
+    white-space:nowrap;
+  }
+  .chip-boat{background:color-mix(in srgb, var(--lagoon-500) 18%, var(--bg-card));color:var(--chip-boat-text);}
+  .chip-reef{background:color-mix(in srgb, var(--reef-500) 18%, var(--bg-card));color:var(--chip-reef-text);}
+  .chip-palm{background:color-mix(in srgb, var(--palm-600) 18%, var(--bg-card));color:var(--chip-palm-text);}
+  .chip-gold{background:color-mix(in srgb, var(--gold-500) 20%, var(--bg-card));color:var(--chip-gold-text);}
+  .chip-coral{background:color-mix(in srgb, var(--coral-500) 18%, var(--bg-card));color:var(--chip-coral-text);}
+  .chip-slate{background:color-mix(in srgb, var(--hue-slate) 18%, var(--bg-card));color:var(--chip-slate-text);}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:2px 0 20px;font-size:12.5px;color:var(--text-muted);}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  /* ---------- Budget ---------- */
+  .callout{
+    background:var(--bg-card-2);border:1px solid var(--border);
+    border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--text-muted);
+    margin-bottom:18px;
+  }
+  .callout a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .budget-total{
+    display:flex;align-items:baseline;gap:10px;margin-bottom:18px;flex-wrap:wrap;
+  }
+  .budget-total .num{
+    font-family:var(--font-label);font-size:30px;font-weight:700;
+    font-variant-numeric:tabular-nums;color:var(--accent-ink);
+  }
+  .budget-total .lbl{color:var(--text-muted);font-size:13px;}
+
+  .budget-summary{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
+    gap:10px;margin-bottom:20px;
+  }
+  .stat-tile{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+    padding:13px 14px;box-shadow:var(--shadow);
+  }
+  .stat-tile .stat-label{font-size:11.5px;color:var(--text-muted);margin-bottom:6px;}
+  .stat-tile .stat-num{
+    font-family:var(--font-label);font-variant-numeric:tabular-nums;
+    font-size:19px;font-weight:700;color:var(--text);line-height:1.15;
+  }
+  .stat-tile.is-total{
+    background:color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+    border-color:var(--accent);
+  }
+  .stat-tile.is-total .stat-num{color:var(--accent-ink);font-size:21px;}
+
+  .budget-row{
+    display:grid;grid-template-columns:1fr auto;gap:4px 12px;
+    padding:11px 0;border-bottom:1px solid var(--border);
+    align-items:center;
+  }
+  .budget-row:last-child{border-bottom:none;}
+  .budget-name{font-size:14px;font-weight:600;}
+  .budget-warn{
+    background:var(--bg-card);border:1px solid var(--coral-500);
+    border-radius:12px;padding:12px 14px;font-size:13.5px;
+    margin-bottom:16px;color:var(--chip-coral-text);
+  }
+  .badge-unknown{
+    display:inline-block;font-size:10.5px;font-weight:700;
+    border:1px solid var(--border);color:var(--text-muted);
+    border-radius:99px;padding:1px 7px;margin-inline-start:6px;
+  }
+  .budget-range{
+    font-family:var(--font-mono);font-variant-numeric:tabular-nums;
+    font-size:13px;color:var(--text-muted);direction:ltr;text-align:left;
+  }
+  .budget-track{
+    grid-column:1 / -1;height:6px;border-radius:99px;background:var(--bg-card-2);overflow:hidden;
+  }
+  .budget-fill{height:100%;background:var(--accent);border-radius:99px;}
+
+  .custom-expense-form{display:flex;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
+  .custom-expense-form input{
+    font-family:var(--font-heb);font-size:13.5px;color:var(--text);
+    background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+    padding:9px 12px;
+  }
+  .custom-expense-form input[type="text"]{flex:2 1 160px;}
+  .custom-expense-form input[type="number"]{flex:1 1 90px;direction:ltr;text-align:right;}
+  .custom-expense-form select{
+    font-family:var(--font-heb);font-size:13.5px;color:var(--text);
+    background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+    padding:9px 10px;
+  }
+  .custom-expense-form input:focus-visible,.custom-expense-form select:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .custom-hint{font-size:12px;color:var(--text-muted);margin:-2px 0 10px;}
+  .custom-expense-form button{
+    font-family:var(--font-heb);font-size:13.5px;font-weight:700;color:#fff;
+    background:var(--accent);border:none;border-radius:10px;padding:9px 18px;cursor:pointer;
+  }
+  .custom-expense-form button:hover{filter:brightness(.95);}
+  .custom-remove{
+    background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;
+    padding:2px 4px;line-height:1;
+  }
+  .custom-remove:hover{color:var(--chip-coral-text);}
+
+  /* ---------- Packing ---------- */
+  .pack-group{margin-bottom:22px;}
+  .pack-group h3{font-size:15px;margin:0 0 10px;font-weight:700;}
+  .pack-group--warn{
+    border:1px solid var(--coral-500);border-radius:14px;padding:12px 14px;
+    background:color-mix(in srgb, var(--coral-500) 6%, var(--bg-card));
+  }
+  .pack-group--warn h3{color:var(--chip-coral-text);}
+  .pack-items{display:flex;flex-direction:column;gap:2px;}
+  .pack-item{
+    display:flex;align-items:center;gap:10px;
+    padding:9px 4px;border-bottom:1px solid var(--border);
+    font-size:14px;cursor:pointer;
+  }
+  .pack-item input{
+    width:17px;height:17px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer;
+  }
+  .pack-item span{transition:opacity .15s, color .15s;}
+  .pack-item a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .pack-item em{color:var(--text-muted);font-style:normal;font-size:12.5px;}
+  .pack-item input:checked + span{opacity:.5;text-decoration:line-through;}
+  .pack-progress{
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+    font-size:13px;color:var(--text-muted);
+  }
+  .pack-progress .bar{flex:1;height:6px;border-radius:99px;background:var(--bg-card-2);overflow:hidden;}
+  .pack-progress .fill{height:100%;background:var(--accent);border-radius:99px;width:0%;transition:width .2s;}
+
+  /* ---------- Info ---------- */
+  .info-card{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+    padding:16px;margin-bottom:12px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:34px 1fr;gap:12px;
+  }
+  .info-icon{
+    width:34px;height:34px;border-radius:9px;
+    background:color-mix(in srgb, var(--accent) 16%, var(--bg-card));
+    display:flex;align-items:center;justify-content:center;color:var(--accent-ink);
+  }
+  .info-card h4{margin:0 0 4px;font-size:14.5px;font-weight:700;}
+  .info-card p{margin:0;font-size:13.5px;color:var(--text-muted);}
+  .info-card p + p{margin-top:6px;}
+
+  /* ---------- Weather ---------- */
+  .wx-locations{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .wx-loc-btn{
+    display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;
+    border:1px solid var(--border);background:var(--bg-card);
+    font-family:var(--font-heb);font-size:13.5px;font-weight:600;color:var(--text-muted);
+    cursor:pointer;
+  }
+  .wx-loc-btn svg{width:15px;height:15px;flex:0 0 auto;}
+  .wx-loc-btn.active{color:#fff;border-color:transparent;}
+  .wx-loc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .wx-updated{font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+  .wx-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;
+  }
+  .wx-day{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+    padding:12px 8px;text-align:center;box-shadow:var(--shadow);
+  }
+  .wx-day .wx-dow{font-size:12.5px;font-weight:700;margin-bottom:1px;}
+  .wx-day .wx-date{font-family:var(--font-label);font-size:10.5px;color:var(--text-muted);margin-bottom:8px;font-variant-numeric:tabular-nums;}
+  .wx-day .wx-icon{width:32px;height:32px;margin:0 auto 6px;color:var(--accent-ink);}
+  .wx-day .wx-cond{font-size:10.5px;color:var(--text-muted);margin-bottom:8px;min-height:26px;line-height:1.3;}
+  .wx-day .wx-temps{font-family:var(--font-label);font-variant-numeric:tabular-nums;font-size:14.5px;font-weight:700;margin-bottom:5px;}
+  .wx-day .wx-temps .lo{color:var(--text-muted);font-weight:600;}
+  .wx-day .wx-rain{
+    font-size:10.5px;color:var(--reef-500);display:flex;align-items:center;justify-content:center;gap:3px;
+  }
+  .wx-day .wx-rain svg{width:10px;height:10px;}
+
+  /* ---------- Recommendations ---------- */
+  .reco-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+  .reco-card{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+    padding:14px 16px;box-shadow:var(--shadow);
+    display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;
+  }
+  .reco-card .reco-body{flex:1 1 220px;}
+  .reco-card .reco-name{font-size:15px;font-weight:700;margin-bottom:3px;}
+  .reco-card .reco-desc{font-size:13px;color:var(--text-muted);line-height:1.5;}
+  .reco-maps-link{
+    display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;
+    background:color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+    color:var(--accent-ink);border:1px solid var(--accent);border-radius:10px;
+    padding:8px 13px;font-size:12.5px;font-weight:700;text-decoration:none;white-space:nowrap;
+  }
+  .reco-maps-link:hover{background:color-mix(in srgb, var(--accent) 20%, var(--bg-card));}
+  .reco-maps-link svg{width:14px;height:14px;flex:0 0 auto;}
+  .reco-custom-item{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;
+  }
+  .reco-custom-item a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .reco-empty{font-size:13px;color:var(--text-muted);padding:8px 0;}
+
+  @media (max-width:520px){
+    .day-card{grid-template-columns:52px 1fr;padding:12px;}
+    .hero{padding:22px 14px 18px;}
+    .panel{padding:18px 14px 0;}
+  }
+</style>
+
+<div class="app">
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-eyebrow">מסלול טיול · גרסה לעריכה</div>
+        <h1 class="hero-title">תאילנד 2026</h1>
+        <div class="hero-sub">27.7.2026 – 9.8.2026 · 14 ימים · ספא · שייט · שנורקול · טבע</div>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="num" id="countdownNum">—</div>
+        <div class="lbl">ימים ליציאה</div>
+      </div>
+    </div>
+    <div class="route" aria-label="מסלול הנסיעה">
+      <div class="route-node is-start">
+        <span class="route-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12l19-9-7 9 7 9-19-9z"/></svg></span>
+        <span class="route-label">דובאי (קונקשן)</span>
+      </div>
+      <div class="route-line"></div>
+      <div class="route-node">
+        <span class="route-dot" style="background:rgba(31,184,174,.32)"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v2M12 19v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M17.7 6.3l-1.4 1.4M7.7 17.7l-1.4 1.4"/></g></svg></span>
+        <span class="route-label">קו סמוי</span>
+      </div>
+      <div class="route-line"></div>
+      <div class="route-node">
+        <span class="route-dot" style="background:rgba(61,107,82,.42)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 21c0-6 1-10 6-13M12 21c0-6-1-10-6-13M12 21V9"/></svg></span>
+        <span class="route-label">קו פנגן</span>
+      </div>
+      <div class="route-line"></div>
+      <div class="route-node">
+        <span class="route-dot" style="background:rgba(47,143,209,.32)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12c3-4 8-6 12-6 3 0 5 2.5 6 6-1 3.5-3 6-6 6-4 0-9-2-12-6z"/><path d="M21 12l2-3v6l-2-3z"/></svg></span>
+        <span class="route-label">קו טאו</span>
+      </div>
+      <div class="route-line"></div>
+      <div class="route-node">
+        <span class="route-dot" style="background:rgba(61,107,82,.42)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17l5-8 4 5 3-4 8 7H2z"/></svg></span>
+        <span class="route-label">קאו סוק</span>
+      </div>
+      <div class="route-line"></div>
+      <div class="route-node is-end">
+        <span class="route-dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 3H10.4z"/><path d="M9 6h6l-1 3H10z"/><path d="M6 10h12l-2 3H8z"/><path d="M4 14h16l-1.5 6h-13z"/></svg></span>
+        <span class="route-label">בנגקוק</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn" data-tab="pack">ציוד</button>
+    <button class="tab-btn" data-tab="budget">תקציב</button>
+    <button class="tab-btn active" data-tab="itin">מסלול יומי</button>
+    <button class="tab-btn" data-tab="weather">מזג אוויר</button>
+    <button class="tab-btn" data-tab="reco">המלצות ואטרקציות</button>
+    <button class="tab-btn" data-tab="info">מידע חשוב</button>
+  </nav>
+
+  <!-- ================= ITINERARY ================= -->
+  <section class="panel active" id="panel-itin">
+
+    <div class="legend">
+      <span><i style="background:var(--chip-boat-text)"></i>שייט</span>
+      <span><i style="background:var(--chip-reef-text)"></i>שנורקול</span>
+      <span><i style="background:var(--chip-palm-text)"></i>טבע</span>
+      <span><i style="background:var(--chip-gold-text)"></i>ספא / עיסוי</span>
+      <span><i style="background:var(--chip-coral-text)"></i>תרבות / עיר</span>
+      <span><i style="background:var(--chip-slate-text)"></i>מעבר / תחבורה</span>
+    </div>
+
+    <div class="callout">
+      <strong>המסלול בפועל:</strong> חיבור דרך דובאי לבנגקוק, טיסת פנים לקו סמוי, ואז דרך יבשה/ים דרומה לקו פנגן ← קו טאו ← קאו סוק (יער וגם פנימי, לא חוף ים — כך שהמונסון בצד האנדמן לא רלוונטי שם), ובחזרה לבנגקוק ברכבת לילה. סוף יולי–אוגוסט הוא עונת המונסון בחוף האנדמן (פוקט/קרבי) — לכן כל תחנות הים במסלול נמצאות בצד המפרץ (קו סמוי/פנגן/טאו) שנשאר יחסית יבש ושקט בתקופה הזו.
+    </div>
+
+    <!-- Departure + connection to Samui -->
+    <div class="segment segment--transit">
+      <div class="segment-banner">
+        <svg viewBox="0 0 700 150" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0B2A2C"/><stop offset="1" stop-color="#17494B"/>
+          </linearGradient></defs>
+          <rect width="700" height="150" fill="url(#bg1)"/>
+          <g fill="#EAF5F3" opacity=".55"><circle cx="110" cy="28" r="1.6"/><circle cx="175" cy="55" r="1.3"/><circle cx="255" cy="22" r="1.8"/><circle cx="330" cy="58" r="1.3"/><circle cx="410" cy="30" r="1.6"/><circle cx="470" cy="60" r="1.3"/></g>
+          <circle cx="605" cy="42" r="24" fill="#EAF5F3" opacity=".9"/>
+          <circle cx="616" cy="35" r="20" fill="#0B2A2C"/>
+          <path d="M110 92l360-32-110 42 110 34-360-24z" fill="#4FD1C7" opacity=".55"/>
+          <path d="M0 128c90-16 150-16 230 0s150 16 230 0 150-16 240 0v22H0z" fill="#1FB8AE" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="segment-head">
+        <span class="segment-title">יציאה מישראל → קו סמוי</span>
+        <span class="segment-dates">27.7 – 28.7 · לילה 1</span>
+      </div>
+      <p class="segment-note">קונקשן בדובאי, נחיתה בבנגקוק והמשך מיידי בטיסת פנים לקו סמוי — לילה אחד בלבד לפני שממשיכים דרומה.</p>
+      <div class="day-list">
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">27</div><div class="m">יולי</div><div class="w">שני</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 1 · המראה מנתב"ג</div>
+            <div class="day-loc">ישראל → דובאי (קונקשן) → בנגקוק</div>
+            <ul>
+              <li>המראה מטרמינל 3 בנתב"ג ב-20:45 — טיסה EK2346 / FZ1808 (Flydubai, Boeing 737 MAX 8), נחיתה בדובאי ב-01:15 בלילה (כבר 28.7, טיסה של 3:30 שעות)</li>
+              <li>קונקשן בדובאי — 1:35 שעות המתנה</li>
+              <li>הטיול מתחיל!</li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">28</div><div class="m">יולי</div><div class="w">שלישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 2 · נחיתה בבנגקוק וטיסת פנים לקו סמוי</div>
+            <div class="day-loc">בנגקוק (BKK) → קו סמוי (USM)</div>
+            <ul>
+              <li>המשך מדובאי ב-02:50 — טיסת EK384 (Emirates, Airbus A380-800, כ-6:40 שעות), נחיתה בבנגקוק ב-12:30</li>
+              <li>מעבר לטיסת פנים Bangkok Airways (PG177) ב-17:55, נחיתה בקו סמוי ב-19:00</li>
+              <li>הסעה פרטית מאושרת (TravelThru, חינם) משדה קו סמוי (USM) למלון — הנהג ממתין לנחיתת PG177 עד 45 דקות, כ-10 דק' נסיעה</li>
+              <li>צ'ק-אין ולילה 1 במלון <strong>The Stay Chaweng Beach Resort</strong>, התאוששות מהטיסה</li>
+              <li>📍 1 Chaweng Beach Rd, Tambon Bo Put, Amphoe Ko Samui, Chang Wat Surat Thani 84320, Thailand — <a href="https://www.google.com/maps/search/?api=1&query=The+Stay+Chaweng+Beach+Resort%2C+1+Chaweng+Beach+Rd%2C+Tambon+Bo+Put%2C+Amphoe+Ko+Samui%2C+Chang+Wat+Surat+Thani+84320%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a></li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Koh Phangan -->
+    <div class="segment segment--phangan">
+      <div class="segment-banner">
+        <svg viewBox="0 0 700 150" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4FD1C7"/><stop offset="1" stop-color="#2E5A42"/>
+          </linearGradient></defs>
+          <rect width="700" height="150" fill="url(#bg2)"/>
+          <circle cx="90" cy="40" r="22" fill="#F3D26B" opacity=".85"/>
+          <path d="M0 150c40-45 70-55 90-105 20 50 50 60 90 105z" fill="#2E5A42" opacity=".35"/>
+          <path d="M470 150c0-45 15-70 45-90 30 20 45 45 45 90z" fill="#2E5A42" opacity=".3"/>
+          <g transform="translate(560,60)" stroke="#12211F" stroke-width="5" stroke-linecap="round" opacity=".55" fill="none">
+            <path d="M0 90C0 40 10 10 45 -10"/><path d="M0 90C0 40 -14 15 -35 5"/><path d="M0 90V15"/>
+          </g>
+          <path d="M0 132c80-14 150-14 220 0s150 14 220 0 150-14 260 0v18H0z" fill="#12211F" opacity=".18"/>
+        </svg>
+      </div>
+      <div class="segment-head">
+        <span class="segment-title">קו פנגן — ג'ונגלים וחופים</span>
+        <span class="segment-dates">29.7 – 2.8 · 4 לילות · Phangan Bayshore Resort</span>
+      </div>
+      <p class="segment-note">4 לילות בבסיס אחד — טרקטורונים בג'ונגל, שוק Thong Sala וחופים בתוליים. חלוקת הימים למטה היא הצעה לסדר; אפשר לגמרי להחליף בין הימים.</p>
+      <div class="day-list">
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">29</div><div class="m">יולי</div><div class="w">רביעי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 3 · מעבורת מקו סמוי והתאקלמות</div>
+            <div class="day-loc">קו סמוי → קו פנגן</div>
+            <ul>
+              <li>מעבורת מאושרת — Haad Rin Queen Speedboat, יציאה 10:30 מקו סמוי, הגעה 11:20 לנמל Haad Rin, צ'ק-אין ב-Phangan Bayshore Resort</li>
+              <li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Phangan+Bayshore+Resort%2C+Koh+Phangan%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a></li>
+              <li>ערב חופשי לרגליים בחול, היכרות עם החוף</li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">30</div><div class="m">יולי</div><div class="w">חמישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 4 · טרקטורונים בג'ונגל</div>
+            <div class="day-loc">פנים האי — מסלולי ATV</div>
+            <ul>
+              <li>סיור טרקטורונים (ATV) פראי בג'ונגל של קו פנגן — פעילות שמתאימה מצוין לנער בן 15</li>
+              <li>נקודות תצפית על האי מלמעלה</li>
+            </ul>
+            <div class="chips"><span class="chip chip-palm">טבע</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">31</div><div class="m">יולי</div><div class="w">שישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 5 · שוק Thong Sala</div>
+            <div class="day-loc">Thong Sala Walking Street</div>
+            <ul>
+              <li>ביקור בשוק האוכל והיריד השוקק של Thong Sala</li>
+              <li>אחר הצהריים חופשי — ספא/עיסוי למי שרוצה לנוח</li>
+              <li>⚡ <strong>Full Moon Party ב-Haad Rin נופל בדיוק על הלילה הזה</strong> — אם רוצים להשתתף, זה בקצה השני של האי וכדאי לתכנן הסעה הלוך-חזור מראש</li>
+            </ul>
+            <div class="chips"><span class="chip chip-coral">תרבות / עיר</span><span class="chip chip-gold">ספא / עיסוי</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">1</div><div class="m">אוג׳</div><div class="w">שבת</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 6 · חופים בתוליים</div>
+            <div class="day-loc">Bottle Beach / Mae Haad</div>
+            <ul>
+              <li>יום חוף רגוע בחופים הבתוליים בצפון האי, נגישים בעיקר בסירה</li>
+              <li>שחייה ומנוחה לפני ההמשך לקו טאו</li>
+            </ul>
+            <div class="chips"><span class="chip chip-boat">שייט</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Koh Tao -->
+    <div class="segment segment--tao">
+      <div class="segment-banner">
+        <svg viewBox="0 0 700 150" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4FD1C7"/><stop offset="1" stop-color="#154E78"/>
+          </linearGradient></defs>
+          <rect width="700" height="150" fill="url(#bg3)"/>
+          <g fill="#fff" opacity=".18"><path d="M60 0l40 150h-25L45 0z"/><path d="M180 0l45 150h-28L155 0z"/><path d="M540 0l40 150h-25L515 0z"/></g>
+          <g fill="#EAF5F3" opacity=".85">
+            <path d="M120 70c14-9 32-12 46-6 5 8 5 16 0 24-14 6-32 3-46-6z"/><path d="M172 76l10-10v20z"/>
+            <path d="M460 100c12-8 28-10 40-5 4 7 4 14 0 21-12 5-28 3-40-5z"/><path d="M506 105l9-9v18z"/>
+          </g>
+          <g fill="#EAF5F3" opacity=".4"><circle cx="260" cy="40" r="3"/><circle cx="300" cy="70" r="2"/><circle cx="340" cy="30" r="2.4"/><circle cx="380" cy="90" r="2"/></g>
+          <path d="M0 132c70-18 140 4 210-6s140-24 210-10 140 22 210 6 70-10 70-10v18H0z" fill="#0F3D4E" opacity=".45"/>
+        </svg>
+      </div>
+      <div class="segment-head">
+        <span class="segment-title">קו טאו — שנורקלים ועולם המים</span>
+        <span class="segment-dates">2.8 – 4.8 · 2 לילות · ⚠ שני מלונות מוזמנים</span>
+      </div>
+      <p class="segment-note">בירת השנורקול/צלילה של תאילנד — השיא הימי של הטיול. <strong>שימו לב:</strong> קיימות שתי הזמנות מלון מאושרות במקביל לתאריכים האלה — Ban's Diving Resort (₪2,619) ו-AC 2 Resort (₪975), שתיהן עם ביטול חינם. יש לבחור אחת ולבטל את השנייה (ראו לשונית "תקציב").</p>
+      <div class="day-list">
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">2</div><div class="m">אוג׳</div><div class="w">ראשון</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 7 · מעבורת לקו טאו</div>
+            <div class="day-loc">קו פנגן → קו טאו</div>
+            <ul>
+              <li>מעבורת בוקר לקו טאו, צ'ק-אין במלון הנבחר (Ban's Diving Resort או AC 2 Resort — לא שניהם)</li>
+              <li>📍 Ban's Diving Resort — <a href="https://www.google.com/maps/search/?api=1&query=Ban%27s+Diving+Resort%2C+Koh+Tao%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a> · AC 2 Resort — <a href="https://www.google.com/maps/search/?api=1&query=AC+2+Resort%2C+Koh+Tao%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a></li>
+              <li>ערב חופשי, סיור רגלי באזור החוף הראשי</li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">3</div><div class="m">אוג׳</div><div class="w">שני</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 8 · שנורקלינג ב-Shark Bay</div>
+            <div class="day-loc">Shark Bay</div>
+            <ul>
+              <li>שנורקלינג ב-Shark Bay — צפייה בצבי ים וכרישי שונית (בלתי מסוכנים)</li>
+              <li>בריכה ורגיעה מוחלטת בחוף השטוח והבתולי</li>
+            </ul>
+            <div class="chips"><span class="chip chip-reef">שנורקול</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Khao Sok -->
+    <div class="segment segment--khaosok">
+      <div class="segment-banner">
+        <svg viewBox="0 0 700 150" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#B7D8CC"/><stop offset="1" stop-color="#3D6B52"/>
+          </linearGradient></defs>
+          <rect width="700" height="150" fill="url(#bg4)"/>
+          <circle cx="580" cy="34" r="18" fill="#fff" opacity=".55"/>
+          <path d="M0 95l70-55 55 30 60-45 70 40 60-30 60 35 60-25 65 35v55H0z" fill="#2E5A42" opacity=".55"/>
+          <path d="M0 95l70 55 55-30 60 45 70-40 60 30 60-35 60 25 65-35v-40H0z" fill="#2E5A42" opacity=".22"/>
+          <path d="M0 128h700v22H0z" fill="#12211F" opacity=".12"/>
+        </svg>
+      </div>
+      <div class="segment-head">
+        <span class="segment-title">קאו סוק — שמורת הטבע והאגם</span>
+        <span class="segment-dates">4.8 – 6.8 · 2 לילות · Cosy Garden Khao Sok</span>
+      </div>
+      <p class="segment-note">יציאה מהאיים ליבשת: יער גשם פנימי וימת Cheow Lan — כאן לא רלוונטי מונסון החוף, כי מדובר באגם ויער פנימיים.</p>
+      <div class="day-list">
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">4</div><div class="m">אוג׳</div><div class="w">שלישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 9 · מעבר יבשתי לקאו סוק</div>
+            <div class="day-loc">קו טאו → דונסאק (Donsak) → קאו סוק</div>
+            <ul>
+              <li>מעבורת מאושרת — Lomprayah Express, יציאה 09:30 מ-Mae Haad (קו טאו), הגעה 14:15 לתחנת הרכבת בסוראט תאני</li>
+              <li>מונית שירות פרטית ישירה לקאו סוק, צ'ק-אין ב-Cosy Garden Khao Sok</li>
+              <li>📍 Moo 6, Khlong Sok, Phanom District, Surat Thani 84250, Thailand — <a href="https://www.google.com/maps/search/?api=1&query=Cosy+Garden+Khao+Sok%2C+Moo+6%2C+Khlong+Sok%2C+Phanom+District%2C+Surat+Thani+84250%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a></li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">5</div><div class="m">אוג׳</div><div class="w">רביעי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 10 · אגם צף וספארי לילה</div>
+            <div class="day-loc">Cheow Lan Lake</div>
+            <ul>
+              <li>פנוראמה מדהימה על האגם הצף, בקתות במבוק על המים</li>
+              <li>קיאקים בין צוקי האבן הגירני שצצים מהמים</li>
+              <li>ספארי לילה מיוחד לחיפוש חיות בר (פילים, גיבונים, ציפורים לילה)</li>
+            </ul>
+            <div class="chips"><span class="chip chip-palm">טבע</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Overnight train + Bangkok -->
+    <div class="segment segment--bangkok">
+      <div class="segment-banner">
+        <svg viewBox="0 0 700 150" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="bg5" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#0B2A2C"/><stop offset="1" stop-color="#5A2E1E"/>
+          </linearGradient></defs>
+          <rect width="700" height="150" fill="url(#bg5)"/>
+          <g fill="#12211F" opacity=".6">
+            <rect x="330" y="70" width="26" height="60"/><rect x="365" y="55" width="24" height="75"/>
+            <rect x="398" y="80" width="22" height="50"/><rect x="428" y="60" width="26" height="70"/>
+            <rect x="463" y="90" width="20" height="40"/><rect x="492" y="50" width="24" height="80"/>
+            <rect x="525" y="75" width="22" height="55"/><rect x="556" y="65" width="24" height="65"/>
+            <rect x="589" y="85" width="20" height="45"/><rect x="618" y="58" width="26" height="72"/>
+          </g>
+          <path d="M480 15l7 13h-14z" fill="#E8683F" opacity=".85"/>
+          <path d="M474 28h12l-2 6h-8z" fill="#E8683F" opacity=".85"/>
+          <path d="M466 34h28l-4 7h-20z" fill="#E8683F" opacity=".8"/>
+          <g fill="#F3D26B" opacity=".8"><rect x="340" y="82" width="4" height="5"/><rect x="374" y="66" width="4" height="5"/><rect x="437" y="72" width="4" height="5"/><rect x="500" y="62" width="4" height="5"/><rect x="565" y="78" width="4" height="5"/><rect x="626" y="70" width="4" height="5"/></g>
+          <g>
+            <rect x="40" y="100" width="150" height="26" rx="6" fill="#1FB8AE" opacity=".55"/>
+            <rect x="30" y="92" width="40" height="18" rx="4" fill="#1FB8AE" opacity=".55"/>
+            <circle cx="65" cy="130" r="8" fill="#12211F" opacity=".7"/><circle cx="150" cy="130" r="8" fill="#12211F" opacity=".7"/>
+            <rect x="50" y="106" width="20" height="10" rx="2" fill="#0B2A2C" opacity=".5"/>
+            <rect x="80" y="106" width="20" height="10" rx="2" fill="#0B2A2C" opacity=".5"/>
+            <rect x="110" y="106" width="20" height="10" rx="2" fill="#0B2A2C" opacity=".5"/>
+          </g>
+          <path d="M0 132h700v18H0z" fill="#12211F" opacity=".22"/>
+        </svg>
+      </div>
+      <div class="segment-head">
+        <span class="segment-title">רכבת לילה ← בנגקוק — קניות ואורבניות</span>
+        <span class="segment-dates">6.8 – 9.8 · 2 לילות · Mercure Bangkok Siam</span>
+      </div>
+      <p class="segment-note">חוויית רכבת לילה במקום טיסה פנימית נוספת, ואז שני ימי עיר לפני הטיסה הביתה.</p>
+      <div class="day-list">
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">6</div><div class="m">אוג׳</div><div class="w">חמישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 11 · רכבת לילה לבנגקוק</div>
+            <div class="day-loc">סוראט תאני → בנגקוק (לינת לילה ברכבת)</div>
+            <ul>
+              <li>רכבת לילה מאושרת — Train #32, Thai Railways, מחלקת 2nd Class Sleeper AC — יציאה 22:24 מסוראט תאני, הגעה 08:10 (7.8) לתחנת Krung Thep Aphiwat (התחנה המרכזית החדשה של בנגקוק)</li>
+              <li>הכרטיסים נשלחים פיזית למלון Cosy Garden Khao Sok לפני היציאה — לוודא שהם התקבלו בצ'ק-אין</li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">7</div><div class="m">אוג׳</div><div class="w">שישי</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 12 · הגעה לבנגקוק וקניות</div>
+            <div class="day-loc">בנגקוק</div>
+            <ul>
+              <li>הגעה לבנגקוק בבוקר, צ'ק-אין במלון <strong>Mercure Bangkok Siam</strong></li>
+              <li>📍 <a href="https://www.google.com/maps/search/?api=1&query=Mercure+Bangkok+Siam%2C+Bangkok%2C+Thailand" target="_blank" rel="noopener noreferrer">פתח בגוגל מפות</a></li>
+              <li>יום קניות לאורך תחנות ה-BTS — MBK Center וגני האזור</li>
+            </ul>
+            <div class="chips"><span class="chip chip-coral">תרבות / עיר</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">8</div><div class="m">אוג׳</div><div class="w">שבת</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 13 · שוק Chatuchak</div>
+            <div class="day-loc">בנגקוק</div>
+            <ul>
+              <li>שוק הסוף-שבוע הגדול Chatuchak — פתוח רק בשבת/ראשון, מתאים בול לתאריך</li>
+              <li>קניות אחרונות, ארוחת ערב חגיגית לסיום הטיול</li>
+            </ul>
+            <div class="chips"><span class="chip chip-coral">תרבות / עיר</span></div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-badge"><div class="d">9</div><div class="m">אוג׳</div><div class="w">ראשון</div></div>
+          <div class="day-main">
+            <div class="day-title">יום 14 · טיסת חזרה לארץ</div>
+            <div class="day-loc">בנגקוק → דובאי (קונקשן) → ישראל</div>
+            <ul>
+              <li>הסעה מאושרת (מיני-ואן, Transferz) — איסוף באזור Pom Prap בחצות (00:00), 9.8 — כ-3:40 שעות מרווח לפני הטיסה, סביר</li>
+              <li>המראה מבנגקוק (BKK) ב-03:40 — טיסת EK371 (Emirates, Boeing 777-300ER, כ-6:10 שעות), נחיתה בדובאי 06:50</li>
+              <li>קונקשן בדובאי — 2:45 שעות המתנה</li>
+              <li>המשך מדובאי ב-09:35 — טיסת EK2363 / FZ1211 (Flydubai, Boeing 737 MAX 8, כ-3:45 שעות), נחיתה בתל אביב ב-12:20</li>
+            </ul>
+            <div class="chips"><span class="chip chip-slate">מעבר / תחבורה</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= BUDGET ================= -->
+  <section class="panel" id="panel-budget">
+    <div class="callout">מחירי המלונות, המעבורות והרכבת הם סכומים מאושרים בשקלים מתוך אישורי ההזמנה בפועל. טיסות בינלאומיות וטיסת הפנים מוצגות לפי שער יציג של 19.7.2026 ($1 ≈ ₪3.04, ฿1 ≈ ₪0.0905) — יש לעדכן לפי החיוב בפועל בכרטיס.</div>
+
+    <div class="budget-summary" id="budgetSummary"></div>
+
+    <div class="budget-warn">
+      <strong>⚠ כפילות בהזמנה — קו טאו (2–4.8):</strong> נמצאו שתי הזמנות מלון מאושרות במקביל לאותם תאריכים — Ban's Diving Resort (₪2,619) ו-AC 2 Resort (₪975). לשתיהן ביטול חינם — כדאי לבטל אחת מהן בהקדם כדי לא להיות מחויבים כפול ולחסוך את ההפרש.
+    </div>
+
+    <h3 style="font-size:15px;margin:22px 0 4px;">עלויות שהוזמנו (טיסות, מלונות, מעברים)</h3>
+    <div id="budgetRows"></div>
+    <div id="customRows"></div>
+    <div class="custom-expense-form">
+      <input type="text" id="customName" placeholder="שם הוצאה נוספת שהוזמנה">
+      <input type="number" id="customAmount" placeholder="סכום" min="0" step="0.01">
+      <select id="customCurrency">
+        <option value="ILS">₪ שקל</option>
+        <option value="USD">$ דולר</option>
+        <option value="THB">฿ באט</option>
+      </select>
+      <input type="number" id="customRate" placeholder="שער" min="0" step="0.0001" style="display:none;width:90px;">
+      <button type="button" id="customAddBtn">הוסף לעלויות שהוזמנו</button>
+    </div>
+    <div class="custom-hint" id="customRateHint" style="display:none;"></div>
+
+    <h3 style="font-size:15px;margin:26px 0 4px;">הוצאות שוטפות משוערות (עדיין לא הוזמנו)</h3>
+    <div id="budgetExtraRows"></div>
+  </section>
+
+  <!-- ================= PACKING ================= -->
+  <section class="panel" id="panel-pack">
+    <div class="pack-progress">
+      <span id="packCount">0 / 0</span>
+      <div class="bar"><div class="fill" id="packFill"></div></div>
+    </div>
+    <div id="packContainer"></div>
+  </section>
+
+  <!-- ================= INFO ================= -->
+  <section class="panel" id="panel-info">
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M8 4v16M4 9h4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h4>ויזה ודרכון</h4>
+        <p>נכון להיום, אזרחי ישראל בדרך כלל פטורים מוויזה לשהות תיירותית קצרה בכניסה אווירית לתאילנד — <strong>יש לוודא מול האתר הרשמי של הרשות התאילנדית או הקונסוליה סמוך למועד הטיסה</strong>, כי התקנות משתנות מעת לעת.</p>
+        <p>דרכון בתוקף של לפחות 6 חודשים מיום הכניסה, ועדיף שני דפים פנויים.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h4>עונה ומזג אוויר</h4>
+        <p>סוף יולי–תחילת אוגוסט = עונת המונסון בחוף האנדמן (פוקט/קרבי/פיפי), ולכן המסלול מתמקד בחוף המפרץ (סמוי/פנגן/טאו) שנשאר יחסית יבש. עדיין ייתכנו ממטרים קצרים אחר-הצהריים — כדאי מעיל גשם קל וגמישות בתוכנית.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.3-7-11a7 7 0 0114 0c0 5.7-7 11-7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h4>בריאות</h4>
+        <p>אין חיסון חובה מישראל, אך מומלץ להתייעץ עם מרפאת נוסעים כ-4-6 שבועות מראש (בין השאר לגבי הפטיטיס A וטיפוס הבטן).</p>
+        <p>עונת הגשמים מגבירה סיכון יתושים (דנגי) — תרסיס הדברה עם DEET/פיקרידין, שרוולים ארוכים בשעות בין-ערביים.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h4>מטבע ותשלומים</h4>
+        <p>המטבע המקומי הוא באט תאילנדי (THB). מומלץ למשוך מזומן מכספומטים מקומיים (עמלה קבועה לכל משיכה — עדיף סכומים גדולים יותר, פחות פעמים), ולהודיע לבנק מראש על הנסיעה.</p>
+        <p>טיפים אינם חובה אך מקובלים: כ-10% במסעדות תיירותיות, טיפ קטן למעסים ולנהגי סירה.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h4>סים / תקשורת</h4>
+        <p>כדאי eSIM מקומי (AIS/TrueMove/dtac) לפני הנסיעה או בכניסה בנתב"ג בנגקוק — נותן כיסוי טוב גם באיים הקטנים.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4z" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h4>ביטוח וחירום</h4>
+        <p>לוודא שביטוח הנסיעה מכסה במפורש פעילויות ימיות (שנורקול, שייט, קיאק).</p>
+        <p>מספרי חירום: משטרת תיירים <strong>1155</strong>, משטרה <strong>191</strong>, אמבולנס <strong>1669</strong>. מומלץ לשמור גם את מספר הקונסוליה/שגרירות הישראלית בבנגקוק בטלפון.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= WEATHER ================= -->
+  <section class="panel" id="panel-weather">
+    <div class="callout">תחזית 16 יום מ-<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>, נשלפה בזמן בניית הדשבורד — <strong>לא מתעדכנת אוטומטית בדפדפן</strong> (עמוד סטטי ללא גישה לאינטרנט חי). לתחזית עדכנית לגמרי סמוך לטיול, אפשר לבקש ממני לרענן את הנתונים.</div>
+    <div class="wx-locations" id="wxLocations"></div>
+    <div class="wx-updated" id="wxUpdated"></div>
+    <div class="wx-grid" id="wxGrid"></div>
+  </section>
+
+  <!-- ================= RECOMMENDATIONS ================= -->
+  <section class="panel" id="panel-reco">
+    <div class="callout">המלצות מבוססות חיפוש אינטרנט עדכני (בלוגי טיולים, TripAdvisor ומדריכים מקומיים), כולל טיפים מעשיים כמו שעות ומחירים משוערים. כל קישור "ניווט" פותח את גוגל מפות עם מסלול נסיעה <strong>מהמלון שבו תתארחו באזור הזה</strong> ליעד. אפשר גם להוסיף למטה קישורי יוטיוב/טיקטוק אישיים לכל יעד. יש לוודא שעות/מחירים בפועל סמוך לביקור, כי אלה משתנים.</div>
+    <div class="wx-locations" id="recoLocations"></div>
+    <div id="recoList"></div>
+
+    <h3 style="font-size:15px;margin:22px 0 8px;">קישורים אישיים (יוטיוב / טיקטוק) ליעד הנבחר</h3>
+    <div class="custom-expense-form">
+      <input type="text" id="recoLinkTitle" placeholder="כותרת / מה רואים בסרטון">
+      <input type="url" id="recoLinkUrl" placeholder="קישור (יוטיוב / טיקטוק)">
+      <button type="button" id="recoLinkAddBtn">הוסף קישור</button>
+    </div>
+    <div id="recoCustomLinks"></div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // Tabs
+  var buttons = document.querySelectorAll('.tab-btn');
+  var panels = { itin:'panel-itin', budget:'panel-budget', pack:'panel-pack', info:'panel-info', weather:'panel-weather', reco:'panel-reco' };
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      Object.values(panels).forEach(function(id){
+        document.getElementById(id).classList.remove('active');
+      });
+      document.getElementById(panels[btn.dataset.tab]).classList.add('active');
+    });
+  });
+
+  // Countdown to 2026-07-27
+  var target = new Date('2026-07-27T00:00:00+07:00');
+  var now = new Date();
+  var days = Math.ceil((target - now) / 86400000);
+  var el = document.getElementById('countdownNum');
+  if (days > 0) el.textContent = days;
+  else if (days === 0) el.textContent = '🏁';
+  else el.textContent = '—';
+
+  // Booked costs — confirmed ILS amounts from actual booking confirmations where available
+  var USD = 3.04, THB = 0.0905;
+  var booked = [
+    { name:'טיסות בינלאומיות (Flydubai/Emirates, 3 נוסעים הלוך-חזור)', src:'₪'+Math.round(3960.30*USD).toLocaleString()+' (מקור: $3,960.30) · מאושר', amt:3960.30*USD, cat:'flights', srcFull:true },
+    { name:'טיסת פנים לקו סמוי (PG177) — ฿5,730 ליחיד × 3', src:'₪'+Math.round(17190*THB).toLocaleString()+' (מקור: ฿17,190) · מאושר', amt:17190*THB, cat:'transport', srcFull:true },
+    { name:'הסעה משדה קו סמוי (USM) למלון — TravelThru', src:'€0.00 · מאושר, חינם', amt:0, cat:'transport' },
+    { name:'מלון בקו סמוי (לילה 1) — The Stay Chaweng Beach', src:'₪515 · מאושר', amt:515, cat:'hotels' },
+    { name:'מעבורת לקו פנגן — Haad Rin Queen Speedboat', src:'₪'+Math.round(19.27*USD).toLocaleString()+' (מקור: $19.27) · מאושר', amt:19.27*USD, cat:'transport', srcFull:true },
+    { name:'מלון בקו פנגן (4 לילות) — Phangan Bayshore Resort', src:'₪4,387 · מאושר', amt:4387, cat:'hotels' },
+    { name:'מעבורת קו טאו→סוראט תאני — Lomprayah (Express)', src:'₪'+Math.round(94.11*USD).toLocaleString()+' (מקור: $94.11) · מאושר', amt:94.11*USD, cat:'transport', srcFull:true },
+    { name:"מלון בקו טאו — Ban's Diving Resort ⚠ כפול", src:'₪2,619 · מאושר', amt:2619, warn:true, cat:'hotels' },
+    { name:'מלון בקו טאו — AC 2 Resort ⚠ כפול', src:'₪975 · מאושר', amt:975, warn:true, cat:'hotels' },
+    { name:'מלון בקאו סוק (2 לילות) — Cosy Garden Khao Sok', src:'₪1,000 · מאושר', amt:1000, cat:'hotels' },
+    { name:'רכבת לילה לבנגקוק — Train #32 (2nd Class Sleeper AC)', src:'₪'+Math.round(120.64*USD).toLocaleString()+' (מקור: $120.64) · מאושר', amt:120.64*USD, cat:'transport', srcFull:true },
+    { name:'מלון בבנגקוק (2 לילות) — Mercure Bangkok Siam', src:'₪1,367 · מאושר', amt:1367, cat:'hotels' },
+    { name:'הסעה לשדה התעופה (מיני-ואן, Pom Prap)', src:'₪62.48 · מאושר', amt:62.48, cat:'transport' },
+    { name:'ביטוח נסיעות (PassportCard DSIC Modular, 3 נוסעים)', src:'₪70.70 × 3 · מאושר', amt:212.10, cat:'insurance' }
+  ];
+  var extra = [
+    { name:'אוכל — 3 ארוחות ביום, 14 ימים', lo:4500, hi:6500 },
+    { name:'פעילויות שלא כלולות בהזמנה (שנורקול/ATV/ספארי/כניסות)', lo:2000, hi:3500 },
+    { name:'תחבורה מקומית (מוניות / Grab)', lo:400, hi:900 },
+    { name:'קניות ושונות', lo:1500, hi:2500 }
+  ];
+
+  var bookedTotal = booked.reduce(function(s,b){return s+b.amt;}, 0);
+  var extraLo = extra.reduce(function(s,b){return s+b.lo;}, 0);
+  var extraHi = extra.reduce(function(s,b){return s+b.hi;}, 0);
+  function sumCat(cat){ return booked.filter(function(b){return b.cat===cat;}).reduce(function(s,b){return s+b.amt;},0); }
+  var byCat = { flights:sumCat('flights'), hotels:sumCat('hotels'), transport:sumCat('transport'), insurance:sumCat('insurance') };
+
+  var customKey = 'thailand-2026-custom-budget';
+  var customItems = [];
+  try { customItems = JSON.parse(localStorage.getItem(customKey) || '[]'); } catch(e){}
+
+  var summaryEl = document.getElementById('budgetSummary');
+  function renderSummary(){
+    var customTotal = customItems.reduce(function(s,c){return s+c.amount;}, 0);
+    summaryEl.innerHTML = '';
+    var tiles = [
+      { label:'טיסות בינלאומיות', num:'₪'+Math.round(byCat.flights).toLocaleString() },
+      { label:'לינה — כל המלונות', num:'₪'+Math.round(byCat.hotels).toLocaleString() },
+      { label:'טיסת פנים, מעבורות, רכבת והסעות', num:'₪'+Math.round(byCat.transport).toLocaleString() },
+      { label:'ביטוח נסיעות', num:'₪'+Math.round(byCat.insurance).toLocaleString() },
+      { label:'סה״כ עלויות שהוזמנו', num:'₪'+Math.round(bookedTotal+customTotal).toLocaleString(), total:true },
+      { label:'הוצאות שוטפות (משוער)', num:'₪'+extraLo.toLocaleString()+'–'+extraHi.toLocaleString() },
+      { label:'סה״כ כולל · 3 נוסעים', num:'₪'+Math.round(bookedTotal+customTotal+extraLo).toLocaleString()+' – ₪'+Math.round(bookedTotal+customTotal+extraHi).toLocaleString(), total:true }
+    ];
+    tiles.forEach(function(t){
+      var tile = document.createElement('div');
+      tile.className = 'stat-tile'+(t.total ? ' is-total' : '');
+      tile.innerHTML = '<div class="stat-label">'+t.label+'</div><div class="stat-num">'+t.num+'</div>';
+      summaryEl.appendChild(tile);
+    });
+  }
+  renderSummary();
+
+  function renderCustomRows(){
+    var box = document.getElementById('customRows');
+    box.innerHTML = '';
+    if (!customItems.length){
+      box.innerHTML = '<div style="font-size:13px;color:var(--text-muted);padding:8px 0;">עדיין לא נוספו הוצאות ידניות.</div>';
+      return;
+    }
+    customItems.forEach(function(c, i){
+      var row = document.createElement('div');
+      row.className = 'budget-row';
+      var originNote = c.origCurrency && c.origCurrency !== 'ILS'
+        ? ' (מקור: '+(c.origCurrency==='USD'?'$':'฿')+c.origAmount+', שער '+c.rate+')'
+        : '';
+      row.innerHTML =
+        '<div class="budget-name">'+c.name+'</div>'+
+        '<div class="budget-range" style="display:flex;align-items:center;gap:8px;justify-content:flex-end;">₪'+Math.round(c.amount).toLocaleString()+originNote+
+        ' <button type="button" data-i="'+i+'" class="custom-remove" aria-label="הסר">✕</button></div>';
+      box.appendChild(row);
+    });
+    box.querySelectorAll('.custom-remove').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        customItems.splice(parseInt(btn.dataset.i,10), 1);
+        try { localStorage.setItem(customKey, JSON.stringify(customItems)); } catch(e){}
+        renderCustomRows(); renderSummary();
+      });
+    });
+  }
+  renderCustomRows();
+
+  var defaultRates = { USD:USD, THB:THB };
+  var currencySel = document.getElementById('customCurrency');
+  var rateInput = document.getElementById('customRate');
+  var rateHint = document.getElementById('customRateHint');
+  currencySel.addEventListener('change', function(){
+    if (currencySel.value === 'ILS'){
+      rateInput.style.display = 'none';
+      rateHint.style.display = 'none';
+    } else {
+      rateInput.style.display = '';
+      rateInput.value = defaultRates[currencySel.value];
+      rateHint.style.display = '';
+      rateHint.textContent = 'שער ברירת מחדל לפי שער יציג של 19.7.2026 — אפשר לערוך לשער של יום ההוצאה בפועל.';
+    }
+  });
+
+  document.getElementById('customAddBtn').addEventListener('click', function(){
+    var nameEl = document.getElementById('customName');
+    var amtEl = document.getElementById('customAmount');
+    var name = nameEl.value.trim();
+    var rawAmount = parseFloat(amtEl.value);
+    var currency = currencySel.value;
+    if (!name || !isFinite(rawAmount) || rawAmount <= 0) return;
+    var item = { name:name, origCurrency:currency };
+    if (currency === 'ILS'){
+      item.amount = rawAmount;
+    } else {
+      var rate = parseFloat(rateInput.value) || defaultRates[currency];
+      item.amount = rawAmount * rate;
+      item.origAmount = rawAmount;
+      item.rate = rate;
+    }
+    customItems.push(item);
+    try { localStorage.setItem(customKey, JSON.stringify(customItems)); } catch(e){}
+    nameEl.value = ''; amtEl.value = '';
+    currencySel.value = 'ILS'; rateInput.style.display = 'none'; rateHint.style.display = 'none';
+    renderCustomRows(); renderSummary();
+  });
+
+  var maxBooked = Math.max.apply(null, booked.map(function(b){return b.amt;}));
+  var rows = document.getElementById('budgetRows');
+  booked.forEach(function(b){
+    var row = document.createElement('div');
+    row.className = 'budget-row';
+    var nameHtml = b.name + (b.unknown ? '<span class="badge-unknown">להשלים</span>' : '');
+    var rangeHtml = (b.unknown || b.srcFull) ? b.src : (b.src+' &nbsp;≈&nbsp; ₪'+Math.round(b.amt).toLocaleString());
+    row.innerHTML =
+      '<div class="budget-name"'+(b.warn ? ' style="color:var(--chip-coral-text)"' : '')+'>'+nameHtml+'</div>' +
+      '<div class="budget-range">'+rangeHtml+'</div>' +
+      '<div class="budget-track"><div class="budget-fill" style="width:'+Math.round(b.amt/maxBooked*100)+'%"></div></div>';
+    rows.appendChild(row);
+  });
+
+  var maxExtraHi = Math.max.apply(null, extra.map(function(b){return b.hi;}));
+  var extraRows = document.getElementById('budgetExtraRows');
+  extra.forEach(function(b){
+    var row = document.createElement('div');
+    row.className = 'budget-row';
+    row.innerHTML =
+      '<div class="budget-name">'+b.name+'</div>' +
+      '<div class="budget-range">₪'+b.lo.toLocaleString()+' – ₪'+b.hi.toLocaleString()+'</div>' +
+      '<div class="budget-track"><div class="budget-fill" style="width:'+Math.round(b.hi/maxExtraHi*100)+'%"></div></div>';
+    extraRows.appendChild(row);
+  });
+
+  // Weather — snapshot fetched from Open-Meteo at dashboard build time
+  var WX_FETCHED_AT = '19.7.2026';
+  var wxIcons = {
+    sun: '<circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></g>',
+    cloudSun: '<circle cx="8" cy="8" r="3" fill="currentColor" opacity=".75"/><path d="M6 18a3.6 3.6 0 01.4-7.2 4.6 4.6 0 018.8-1.2A4 4 0 0119 17.5a3.6 3.6 0 01-.5.5H6z" fill="currentColor"/>',
+    cloud: '<path d="M6 18a3.6 3.6 0 01.4-7.2 4.6 4.6 0 018.8-1.2A4 4 0 0119 17.5a3.6 3.6 0 01-.5.5H6z" fill="currentColor"/>',
+    drizzle: '<path d="M6 14a3.6 3.6 0 01.4-7.2 4.6 4.6 0 018.8-1.2A4 4 0 0119 13.5a3.6 3.6 0 01-.5.5H6z" fill="currentColor"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 18v2M12 18v2M16 18v2"/></g>',
+    rain: '<path d="M6 13a3.6 3.6 0 01.4-7.2 4.6 4.6 0 018.8-1.2A4 4 0 0119 12.5a3.6 3.6 0 01-.5.5H6z" fill="currentColor"/><g stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 17l-1.5 4M13 17l-1.5 4M18 17l-1.5 4"/></g>',
+    storm: '<path d="M6 13a3.6 3.6 0 01.4-7.2 4.6 4.6 0 018.8-1.2A4 4 0 0119 12.5a3.6 3.6 0 01-.5.5H6z" fill="currentColor"/><path d="M13 16l-3 5h3l-2 4 5-6h-3l2-3z" fill="#C9A227"/>'
+  };
+  function wxInfo(code){
+    var map = {
+      0:['בהיר','sun'], 1:['בהיר בעיקר','sun'], 2:['מעונן חלקית','cloudSun'], 3:['מעונן','cloud'],
+      45:['ערפל','cloud'], 48:['ערפל','cloud'],
+      51:['טפטוף קל','drizzle'], 53:['טפטוף מתון','drizzle'], 55:['טפטוף צפוף','drizzle'],
+      61:['גשם קל','rain'], 63:['גשם מתון','rain'], 65:['גשם חזק','rain'],
+      80:['ממטרים קלים','rain'], 81:['ממטרים מתונים','rain'], 82:['ממטרים עזים','rain'],
+      95:['סופת רעמים','storm'], 96:['רעמים וברד','storm'], 99:['רעמים וברד','storm']
+    };
+    return map[code] || ['—','cloud'];
+  }
+  var wxData = {
+    bangkok: { time:["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-01","2026-08-02","2026-08-03"],
+      code:[51,95,95,95,95,95,95,95,95,55,80,80,53,51,3],
+      max:[34.9,36.0,34.0,30.8,29.1,32.1,33.0,32.6,31.2,30.8,26.4,28.5,31.3,32.4,31.3],
+      min:[24.7,26.6,25.8,26.1,25.5,25.3,25.3,25.4,25.7,25.5,25.2,24.5,25.6,25.5,26.5],
+      rain:[49,94,95,84,80,86,92,92,98,98,91,87,86,75,46] },
+    samui: { time:["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-01","2026-08-02","2026-08-03"],
+      code:[51,55,95,81,55,53,53,95,53,55,95,51,51,51,51],
+      max:[31.0,31.3,29.1,26.8,26.8,26.9,27.2,27.4,25.0,24.8,23.7,27.2,26.9,28.2,25.5],
+      min:[24.5,24.1,23.1,21.9,22.9,22.9,22.2,22.6,22.3,22.1,22.3,22.5,23.7,24.0,23.7],
+      rain:[53,73,71,63,65,64,66,80,88,90,86,75,76,69,56] },
+    phangan: { time:["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-01","2026-08-02","2026-08-03"],
+      code:[51,53,95,95,55,55,53,80,80,80,95,51,51,51,51],
+      max:[29.0,29.6,28.1,27.0,27.2,27.1,27.3,27.4,24.4,24.8,23.7,27.9,28.0,28.6,25.6],
+      min:[25.4,25.4,23.5,22.5,23.7,23.4,23.5,23.1,23.1,22.6,22.6,23.4,24.3,25.0,24.7],
+      rain:[53,73,71,63,65,64,66,80,88,90,86,75,76,69,56] },
+    tao: { time:["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-01","2026-08-02","2026-08-03"],
+      code:[1,95,55,80,51,51,51,53,80,80,81,53,51,51,55],
+      max:[29.4,29.3,28.7,27.9,28.6,27.3,28.3,27.3,27.0,27.2,26.7,27.6,28.2,28.3,28.2],
+      min:[27.2,26.5,26.0,26.1,26.7,26.6,26.7,26.6,26.0,25.8,25.9,26.2,27.3,27.3,26.3],
+      rain:[6,69,65,65,61,58,63,76,86,84,77,76,65,59,64] },
+    khaosok: { time:["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-01","2026-08-02","2026-08-03"],
+      code:[2,55,95,80,53,53,51,80,80,80,80,53,51,53,80],
+      max:[30.8,29.8,28.6,26.2,30.1,27.2,27.7,25.9,25.3,26.0,24.8,25.6,31.3,32.0,25.0],
+      min:[23.4,24.0,23.2,23.2,23.9,24.0,24.1,23.8,23.5,23.3,23.3,23.9,24.1,24.4,23.1],
+      rain:[20,83,90,95,92,91,97,97,88,100,92,92,94,94,71] }
+  };
+  var wxLocations = [
+    { key:'bangkok', label:'בנגקוק', color:'#E8683F', icon:'<path d="M12 2l1.6 3H10.4z"/><path d="M9 6h6l-1 3H10z"/><path d="M6 10h12l-2 3H8z"/><path d="M4 14h16l-1.5 6h-13z"/>' },
+    { key:'samui', label:'קו סמוי', color:'#1FB8AE', icon:'<circle cx="12" cy="12" r="4" fill="none"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v2M12 19v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M17.7 6.3l-1.4 1.4M7.7 17.7l-1.4 1.4"/></g>' },
+    { key:'phangan', label:'קו פנגן', color:'#3D6B52', icon:'<g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 21c0-6 1-10 6-13M12 21c0-6-1-10-6-13M12 21V9"/></g>' },
+    { key:'tao', label:'קו טאו', color:'#2F8FD1', icon:'<path d="M2 12c3-4 8-6 12-6 3 0 5 2.5 6 6-1 3.5-3 6-6 6-4 0-9-2-12-6z"/><path d="M21 12l2-3v6l-2-3z"/>' },
+    { key:'khaosok', label:'קאו סוק', color:'#3D6B52', icon:'<path d="M2 17l5-8 4 5 3-4 8 7H2z"/>' }
+  ];
+  var hebDow = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+  var wxLocBtns = document.getElementById('wxLocations');
+  wxLocations.forEach(function(loc, i){
+    var btn = document.createElement('button');
+    btn.className = 'wx-loc-btn'+(i===1 ? ' active' : '');
+    btn.dataset.key = loc.key;
+    if (i===1) btn.style.background = loc.color;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor">'+loc.icon+'</svg><span>'+loc.label+'</span>';
+    btn.addEventListener('click', function(){
+      wxLocBtns.querySelectorAll('.wx-loc-btn').forEach(function(b){ b.classList.remove('active'); b.style.background=''; });
+      btn.classList.add('active'); btn.style.background = loc.color;
+      renderWeather(loc.key);
+    });
+    wxLocBtns.appendChild(btn);
+  });
+  document.getElementById('wxUpdated').textContent = 'תחזית נשלפה בתאריך ' + WX_FETCHED_AT + ' · שעון תאילנד (GMT+7)';
+
+  function renderWeather(key){
+    var d = wxData[key];
+    var grid = document.getElementById('wxGrid');
+    grid.innerHTML = '';
+    d.time.forEach(function(dateStr, i){
+      var dt = new Date(dateStr+'T12:00:00');
+      var dow = hebDow[dt.getDay()];
+      var dm = dateStr.slice(8,10)+'.'+dateStr.slice(5,7);
+      var info = wxInfo(d.code[i]);
+      var card = document.createElement('div');
+      card.className = 'wx-day';
+      card.innerHTML =
+        '<div class="wx-dow">'+dow+'</div>'+
+        '<div class="wx-date">'+dm+'</div>'+
+        '<svg class="wx-icon" viewBox="0 0 24 24" fill="currentColor">'+wxIcons[info[1]]+'</svg>'+
+        '<div class="wx-cond">'+info[0]+'</div>'+
+        '<div class="wx-temps">'+Math.round(d.max[i])+'° <span class="lo">/ '+Math.round(d.min[i])+'°</span></div>'+
+        '<div class="wx-rain"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c3 4 6 8 6 12a6 6 0 01-12 0c0-4 3-8 6-12z"/></svg>'+d.rain[i]+'%</div>';
+      grid.appendChild(card);
+    });
+  }
+  renderWeather('samui');
+
+  // Recommendations & attractions per destination
+  var recoOrigins = {
+    bangkok:'Mercure Bangkok Siam, Bangkok, Thailand',
+    samui:'The Stay Chaweng Beach Resort, 1 Chaweng Beach Rd, Tambon Bo Put, Amphoe Ko Samui, Chang Wat Surat Thani 84320, Thailand',
+    phangan:'Phangan Bayshore Resort, Koh Phangan, Thailand',
+    tao:"Ban's Diving Resort, Koh Tao, Thailand",
+    khaosok:'Cosy Garden Khao Sok, Khlong Sok, Phanom District, Surat Thani, Thailand'
+  };
+  var recoData = {
+    bangkok: [
+      { name:'Wat Arun — מקדש השחר', desc:'מגדל בגובה 86 מטר לצד נהר צ׳או פראיה — הכי מרשים בשעת שקיעה. אפשר לשלב עם שייט קצר בנהר.', dest:'Wat Arun, Bangkok, Thailand' },
+      { name:'Wat Pho (הבודהה השוכב)', desc:'ההמונים בצהריים בלתי נסבלים — כדאי להגיע ב-8:30 בבוקר או אחרי 16:00 כדי להימנע מהחום ומקבוצות התיירים.', dest:'Wat Pho, Bangkok, Thailand' },
+      { name:'הארמון הגדול (Grand Palace)', desc:'כניסה כ-500 באט לנוסע (2026) — יקר יחסית אבל אחד האתרים המרשימים בעיר. גם כאן — הגיעו מוקדם בבוקר.', dest:'Grand Palace, Bangkok, Thailand' },
+      { name:'רובע הסינים — Yaowarat', desc:'לאחר החשכה הופך לאחד ממסדרונות אוכל הרחוב הכי מוערכים בעולם — ארוחה שלמה ב-5-10$ שבמערב הייתה עולה 40$.', dest:'Yaowarat Road, Bangkok, Thailand' },
+      { name:'Bangkok Reflection — One City Center', desc:'🆕 אטרקציה חדשה שנפתחה ב-2025/2026: מצפה תצפית סוחף עם מיצגי אמנות ומראות, בהשראת SUMMIT One Vanderbilt בניו יורק — נוף פנורמי על העיר.', dest:'One City Center, Phloen Chit, Bangkok, Thailand' },
+      { name:'האולם הראשון של Hawker Centre ליד Lumpini Park', desc:'🆕 שוק אוכל מקורה בסגנון סינגפורי שנפתח תחילת 2026 — 88 דוכנים אוצרים, אחד ממוקדי האוכל המרגשים החדשים בעיר.', dest:'Lumpini Park, Bangkok, Thailand' },
+      { name:'שוק Amphawa הצף', desc:'לעומת שוק דמנוין סאדואק המתויר מדי — כאן מקומיים עדיין מגיעים לקנות ולבלות בוקר רגוע על המים.', dest:'Amphawa Floating Market, Samut Songkhram, Thailand' },
+      { name:'Jodd Fairs', desc:'שוק לילה מודרני ותוסס, אהוד גם על צעירים מקומיים — מוזיקה חיה, פודקורט נקי ואווירה עכשווית.', dest:'Jodd Fairs, Bangkok, Thailand' }
+    ],
+    samui: [
+      { name:'Chaweng Beach Road — טיילת וחוף בערב', desc:'⏰ פתוח בזמן ההגעה שלכם. מסעדות, ברים ודוכני אוכל רחוב שנפתחים כל ערב לאורך החוף — ממש ליד המלון, טוב מאוד לערב הגעה עייף מהטיסות.', dest:'Chaweng Beach Road, Koh Samui, Thailand' },
+      { name:'Ark Bar Beach Club', desc:'⏰ פתוח בזמן ההגעה שלכם. בר-מסעדה איקוני על החוף בצ׳אוונג, אווירה נעימה ומוזיקה, טוב לארוחת ערב ראשונה קלילה בתאילנד.', dest:'Ark Bar Beach Club, Chaweng, Koh Samui, Thailand' },
+      { name:'Soi Green Mango — רחוב הבילויים של צ׳אוונג', desc:'⏰ פתוח בזמן ההגעה שלכם. הרחוב התוסס ביותר בערב עם ברים, מסעדות ודוכני אוכל רחוב על קצה החוף.', dest:'Soi Green Mango, Chaweng, Koh Samui, Thailand' }
+    ],
+    samuiExtra: [
+      { name:'Secret Buddha Garden (Tarnim Magic Garden)', desc:'גן פסלים נסתר בגבעות הג׳ונגל של האי — כניסה כ-100 באט לאדם, אווירה שקטה ומיסטית.', dest:'Secret Buddha Garden, Koh Samui, Thailand' },
+      { name:'Wat Plai Laem', desc:'מקדש ציורי 5 דקות נסיעה מהבודהה הגדול — מרגיש כמו פנינה נסתרת לעומת האתרים העמוסים באי.', dest:'Wat Plai Laem, Koh Samui, Thailand' },
+      { name:'Silver Beach', desc:'מפרץ קטן ונסתר בין לאמאי לצ׳אוונג — לא עמוס אך עדיין נגיש בקלות.', dest:'Silver Beach, Koh Samui, Thailand' },
+      { name:'Koh Madsum — אי החזירים', desc:'סיור סירה לאי קטן עם חזירים ידידותיים שמסתובבים חופשי על החוף — חוויה משפחתית קלילה ומצחיקה.', dest:'Koh Madsum Pig Island, Koh Samui, Thailand' },
+      { name:'מפל Hin Lat', desc:'שביל מוצל בן כ-30 דקות עם בריכות סלע לטבילה — נעים ולא תיירותי מדי.', dest:'Hin Lat Waterfall, Koh Samui, Thailand' }
+    ],
+    phangan: [
+      { name:'Full Moon Party, Haad Rin — 31.7.2026!', desc:'✅ חופף בדיוק לשהות שלכם באי (יום 5, שישי 31.7). כניסה כ-200 באט (~6$). המסיבה המפורסמת על החוף — כדאי לתכנן מראש הסעה הלוך-חזור מ-Thong Sala/Bayshore, כי Haad Rin בקצה השני של האי.', dest:'Haad Rin Beach, Koh Phangan, Thailand' },
+      { name:'Bottle Beach (חוף הבקבוק)', desc:'נחשב לחוף הכי טוב לשחייה באי — עומק מים מושלם, חול רך ומפרץ שקט וארוך. נגיש רק בסירה, הליכה או ג׳יפ 4X4 (כבר כלול במסלול שלכם).', dest:'Bottle Beach, Koh Phangan, Thailand' },
+      { name:'תצפית Bottle Beach', desc:'אולי הנוף הכי טוב באי — עומדים על סלע ענק שבוקע מהחופה ורואים את כל המפרץ והעמק מתחת.', dest:'Bottle Beach Viewpoint, Koh Phangan, Thailand' },
+      { name:'Amsterdam Bar (Panorama Viewpoint)', desc:'הבר עם התצפית המפורסם מעל מפרץ Haad Rin — מומלץ לשעת שקיעה.', dest:'Amsterdam Bar Haad Rin, Koh Phangan, Thailand' },
+      { name:'420 Club (Viewpoint)', desc:'תצפית פנורמית בצפון האי, עם נוף מיוחד גם על האי הסמוך Koh Ma.', dest:'420 Club Viewpoint, Koh Phangan, Thailand' },
+      { name:'חוף Salad Beach', desc:'חוף מערבי עם שנורקול טוב, מסעדות, ברים ומקומות עיסוי — קל ונוח יחסית עם תשתית מלאה.', dest:'Salad Beach, Koh Phangan, Thailand' },
+      { name:'Thong Sala Walking Street', desc:'שוק הלילה הראשי של האי — אוכל רחוב מקומי וסחורה יד-שנייה (כבר כלול במסלול).', dest:'Thong Sala Walking Street, Koh Phangan, Thailand' },
+      { name:'Phaeng Waterfall', desc:'מפל נגיש בפנים האי — כבר כלול במסלול, אבל שווה לחזור אם נשאר זמן פנוי.', dest:'Phaeng Waterfall, Koh Phangan, Thailand' }
+    ],
+    tao: [
+      { name:'Japanese Gardens', desc:'⭐ נחשב לספוט השנורקול הכי טוב באי — תצורות אלמוגים ייחודיות שנראות כמו גינות בונסאי יפניות. הכי טוב מוקדם בבוקר כשהמים רגועים וצלולים.', dest:'Japanese Gardens Koh Tao, Thailand' },
+      { name:'Shark Bay', desc:'המקום האמין ביותר לצפות בצבי ים בשנורקול — יש עמלת כניסה קטנה של כ-100 באט (~3$) לריזורט. כבר כלול במסלול.', dest:'Shark Bay, Koh Tao, Thailand' },
+      { name:'Aow Leuk', desc:'מים רגועים וצלולים עם גן אלמוגים יפהפה ומגוון דגי שונית — בדרום-מזרח האי.', dest:'Ao Leuk Bay, Koh Tao, Thailand' },
+      { name:'Tanote Bay', desc:'מוכר גם לשנורקול וגם לקפיצות סלע — יש סלע גרניט גדול ליד החוף לאמיצים.', dest:'Tanote Bay, Koh Tao, Thailand' },
+      { name:'Hin Wong Bay', desc:'מוסתר מאחורי כביש תלול שמרתיע רוב התיירים — האלמוגים כאן מהבריאים באי עם מגוון דגים טוב יותר.', dest:'Hin Wong Bay, Koh Tao, Thailand' },
+      { name:'Koh Nangyuan Viewpoint', desc:'שלושת האיים המחוברים בלשון חול — נקודת התצפית האייקונית של תאילנד.', dest:'Koh Nangyuan Viewpoint, Koh Tao, Thailand' },
+      { name:'John-Suwan Viewpoint', desc:'כבר כלול במסלול — נוף פנורמי על שני המפרצים משני צידי האי.', dest:'John-Suwan Viewpoint, Koh Tao, Thailand' }
+    ],
+    khaosok: [
+      { name:'Khao Sam Roe Yod ("שלושת האחים")', desc:'שלושת עמודי האבן הגירניים המפורסמים שמזדקרים אנכית מהמים הירוקים-אזמרגד — האתר הכי מצולם באגם, נגיש רק בסירה ארוכת-זנב.', dest:'Cheow Lan Lake, Khao Sok, Thailand' },
+      { name:'קיאקים באגם', desc:'רוב הבקתות הצפות מספקות קיאקים וחגורות הצלה בחינם לאורחים — דרך נהדרת לחוות את שקט האגם בעצמכם.', dest:'Cheow Lan Lake, Khao Sok, Thailand' },
+      { name:'מערות Coral Cave ו-Pra Khie Phet', desc:'שתי מערות קלות להליכה (כ-30 דקות) — טובות למי שרוצה טעימה של הרפתקה בלי מאמץ גדול.', dest:'Khao Sok National Park, Thailand' },
+      { name:'⚠ מערת Nam Talu', desc:'המערה ההרפתקנית ביותר — כוללת הליכה במים. <strong>נסגרת בעונת הגשמים בגלל סכנת שיטפונות פתאומיים</strong> — בהתחשב בתאריכי הטיול (סוף יולי-אוגוסט) יש לוודא מראש שהיא פתוחה.', dest:'Khao Sok National Park, Thailand' },
+      { name:'תצפית Krai Sorn (Tarzan Viewpoint)', desc:'טיפוס לאחת מנקודות התצפית היפות באזור — נוף פנורמי על האגם הירוק-אזמרגד וההרים סביבו.', dest:'Khao Sok National Park, Thailand' },
+      { name:'ספארי ערפל בוקר', desc:'שייט סירה מוקדם בבוקר כשהאגם עדיין עטוף ערפל — אווירה קסומה ופחות תיירים.', dest:'Cheow Lan Lake, Khao Sok, Thailand' },
+      { name:'Elephant Hills (חוויית פילים אתית)', desc:'מקום ידוע לצפייה/טיפול בפילים ללא רכיבה — חוויה משפחתית מומלצת.', dest:'Elephant Hills Khao Sok, Thailand' }
+    ]
+  };
+  var recoNotes = {
+    samui: 'מכיוון שאתם רק לילה אחד בקו סמוי (הגעה כ-19:30, יציאה למחרת בבוקר) — כל ההמלצות כאן מתאימות לערב בלבד וקרובות למלון, ולא לפעילויות יום שלמות.'
+  };
+  function mapsLink(origin, dest){
+    return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest)+'&travelmode=driving';
+  }
+  var mapPinIcon = '<path d="M12 21s-7-5.3-7-11a7 7 0 0114 0c0 5.7-7 11-7 11z"/>';
+  var currentRecoKey = 'samui';
+
+  var recoLocBtns = document.getElementById('recoLocations');
+  wxLocations.forEach(function(loc, i){
+    var btn = document.createElement('button');
+    btn.className = 'wx-loc-btn'+(i===1 ? ' active' : '');
+    if (i===1) btn.style.background = loc.color;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor">'+loc.icon+'</svg><span>'+loc.label+'</span>';
+    btn.addEventListener('click', function(){
+      recoLocBtns.querySelectorAll('.wx-loc-btn').forEach(function(b){ b.classList.remove('active'); b.style.background=''; });
+      btn.classList.add('active'); btn.style.background = loc.color;
+      currentRecoKey = loc.key;
+      renderReco(loc.key);
+      renderRecoLinks(loc.key);
+    });
+    recoLocBtns.appendChild(btn);
+  });
+
+  function renderReco(key){
+    var list = document.getElementById('recoList');
+    list.innerHTML = '';
+    if (recoNotes[key]){
+      var note = document.createElement('div');
+      note.className = 'callout';
+      note.style.marginBottom = '12px';
+      note.textContent = recoNotes[key];
+      list.appendChild(note);
+    }
+    function buildGrid(items){
+      var g = document.createElement('div');
+      g.className = 'reco-grid';
+      items.forEach(function(item){
+        var card = document.createElement('div');
+        card.className = 'reco-card';
+        card.innerHTML =
+          '<div class="reco-body"><div class="reco-name">'+item.name+'</div><div class="reco-desc">'+item.desc+'</div></div>'+
+          '<a class="reco-maps-link" href="'+mapsLink(recoOrigins[key], item.dest)+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor">'+mapPinIcon+'</svg>ניווט מהמלון</a>';
+        g.appendChild(card);
+      });
+      return g;
+    }
+    list.appendChild(buildGrid(recoData[key]));
+    if (recoData[key+'Extra']){
+      var extraH = document.createElement('h3');
+      extraH.style.fontSize = '14px'; extraH.style.margin = '18px 0 8px';
+      extraH.textContent = 'אם תחזרו ליום שלם באי (לא כלול בשהות הנוכחית)';
+      list.appendChild(extraH);
+      list.appendChild(buildGrid(recoData[key+'Extra']));
+    }
+  }
+  renderReco('samui');
+
+  var recoLinksKey = 'thailand-2026-reco-links';
+  var recoLinks = {};
+  try { recoLinks = JSON.parse(localStorage.getItem(recoLinksKey) || '{}'); } catch(e){}
+
+  function renderRecoLinks(key){
+    var box = document.getElementById('recoCustomLinks');
+    box.innerHTML = '';
+    var items = recoLinks[key] || [];
+    if (!items.length){
+      box.innerHTML = '<div class="reco-empty">עדיין לא נוספו קישורים אישיים ליעד הזה.</div>';
+      return;
+    }
+    items.forEach(function(it, i){
+      var row = document.createElement('div');
+      row.className = 'reco-custom-item';
+      row.innerHTML = '<a href="'+it.url+'" target="_blank" rel="noopener noreferrer">'+it.title+'</a>'+
+        '<button type="button" class="custom-remove" data-i="'+i+'" aria-label="הסר">✕</button>';
+      box.appendChild(row);
+    });
+    box.querySelectorAll('.custom-remove').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        recoLinks[currentRecoKey].splice(parseInt(btn.dataset.i,10), 1);
+        try { localStorage.setItem(recoLinksKey, JSON.stringify(recoLinks)); } catch(e){}
+        renderRecoLinks(currentRecoKey);
+      });
+    });
+  }
+  renderRecoLinks('samui');
+
+  document.getElementById('recoLinkAddBtn').addEventListener('click', function(){
+    var titleEl = document.getElementById('recoLinkTitle');
+    var urlEl = document.getElementById('recoLinkUrl');
+    var title = titleEl.value.trim();
+    var url = urlEl.value.trim();
+    if (!title || !url) return;
+    if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+    if (!recoLinks[currentRecoKey]) recoLinks[currentRecoKey] = [];
+    recoLinks[currentRecoKey].push({ title:title, url:url });
+    try { localStorage.setItem(recoLinksKey, JSON.stringify(recoLinks)); } catch(e){}
+    titleEl.value = ''; urlEl.value = '';
+    renderRecoLinks(currentRecoKey);
+  });
+
+  // Packing data
+  var packing = [
+    { group:'מסמכים וטרום טיסה', items:['דרכונים בתוקף לפחות 6 חודשים מיום הכניסה','כרטיסי טיסה + אישורי הזמנה (מלונות, מעבורות, רכבת)','מילוי טופס הכניסה הדיגיטלי <a href="https://tdac.immigration.go.th/" target="_blank" rel="noopener noreferrer">TDAC (Thailand Digital Arrival Card)</a> עד 3 ימים לפני הנחיתה — לשמור צילום מסך/PDF. <em>לוודא שהכתובת מתחילה ב-immigration.go.th לפני הזנת פרטים אישיים</em>','התדריך דורש את כתובת המלון הראשון בתאילנד — להכין מראש: <strong>The Stay Chaweng Beach Resort, 1 Chaweng Beach Rd, Tambon Bo Put, Amphoe Ko Samui, Chang Wat Surat Thani 84320, Thailand</strong>','לבדוק מול הקונסוליה/אתר הרשמי את תנאי הפטור מוויזה סמוך למועד הטיסה','ביטוח נסיעות — הדפסת אישור/מספר פוליסה','אפליקציית TravIL של משרד החוץ (עדכוני חירום ובטיחות לנוסעים)','הזמנת שירות אינטרנט eSIM מראש (AIS / TrueMove / dtac) — להתקין לפני הנחיתה כדי שיהיה כיסוי מיד עם ההגעה','ספר/משחק לזמן טיסה וסירה'] },
+    { group:'תרופות ובריאות (לצרכים מיוחדים)', items:['אם מישהו נוטל תרופות מרשם קבועות (כולל ADHD/ממריצות) — לבדוק מראש את כללי היבוא התאילנדיים ולשאת מרשם/אישור רופא באנגלית עם שם החומר הפעיל','חומרים מבוקרים מסוימים עשויים לדרוש אישור מראש מה-FDA התאילנדי כ-15 יום לפני הנסיעה — לבדוק אם רלוונטי ולפעול בזמן','תרופות בכמות מספקת לכל הטיול + רזרבה, בתוך אריזה מקורית עם תווית','תרסיס יתושים DEET/פיקרידין, משחה לאחר שמש / אלוורה','ערכת עזרה ראשונה מורחבת: כדורי בטן/בחילה (חשוב לימי הסירה), משכך כאבים, תרופות אלרגיה, פלסטרים'] },
+    { group:'לים ולשנורקול', items:['תיק גב אטום למים (Dry Bag) לטיולי הסירה','2-3 סטים של בגד ים','נעל ים / כפכף צמוד — חשוב לחופים סלעיים','חולצת שחייה / רשג-ארד (הגנה משמש)','מסכת שנורקול אישית (אופציונלי, נוחות טובה יותר)'] },
+    { group:'לקאו סוק ולג׳ונגל', items:['שרוולים/מכנסיים ארוכים לטיולי יער וספארי לילה','נעלי הליכה סגורות עם סוליה טובה (חובה למסלולים בוציים)','תרסיס יתושים חזק וממושך לאזור הג׳ונגל','פנס ראש (headlamp) — חיוני לספארי הלילה בקאו סוק'] },
+    { group:'בגדים מותאמים לתאילנד', items:['בגדים קלים, רחבים ונושמים (כותנה/פשתן)','מעיל גשם קל / פונצ׳ו','צעיף דק לכיסוי כתפיים/ברכיים בביקור במקדשים'] },
+    { group:'היגיינה', items:['סבון/ג\'ל רחצה ושמפו בגודל טיסה (עד 100 מ"ל)','מברשת שיניים, משחת שיניים וחוט דנטלי','דאודורנט','מגבת מיקרופייבר קלה ומתייבשת מהר — שימושית אחרי שחייה/שנורקול','מגבונים לחים וג\'ל אלכוהול לניקוי ידיים','שקיות זיפלוק — לנוזלי הטיסה ולבגדים רטובים בדרך'] },
+    { group:'אלקטרוניקה', items:['מטענים לטלפון הנייד ולשעון (חכם/ספורט)','מטען נייד (פאוור בנק)','אוזניות אישיות + מטען','מתאם חשמל לתאילנד — תאילנד משתמשת בתקעים A/B/C (רוב השקעים שם הם "אוניברסליים" ומקבלים גם תקע עגול כפול-פין). אם למטען יש תקע ישראלי משולש (תקע H) — <strong>חובה מתאם</strong>. אם המטען הוא כבר תקע עגול כפול-פין (כמו ברוב מטעני הטלפון/מחשב) — לרוב אפשר להכניס ישירות בלי מתאם, אך כדאי לקחת מתאם אוניברסלי אחד ליתר ביטחון (מתח 220V זהה כמעט לישראל, לא צריך שנאי)','נרתיק עמיד למים לטלפון'] },
+    { group:'חובה בתיק היד (Carry-On)', items:['כל התרופות והמסמכים הרפואיים','דרכונים, אישורי הזמנה ומסמכי TDAC','סט בגד ים + חולצה להחלפה למקרה של איחור מזוודה','כסף כיס / כרטיס נטען'] },
+    { group:'עדיף לוותר (לא מתאים לאקלים)', warn:true, items:['מעיל חורף כבד — חם מדי לאקלים הטרופי, מעיל גשם קל מספיק','כמות גדולה של ג׳ינסים — כבדים, חמים ומתייבשים לאט; עדיפות לבדים קלים ומתייבשים מהר'] }
+  ];
+  var container = document.getElementById('packContainer');
+  var totalItems = 0;
+  var storageKey = 'thailand-2026-packing';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch(e){}
+
+  packing.forEach(function(g, gi){
+    var wrap = document.createElement('div');
+    wrap.className = 'pack-group'+(g.warn ? ' pack-group--warn' : '');
+    var h3 = document.createElement('h3');
+    h3.textContent = g.group;
+    wrap.appendChild(h3);
+    var list = document.createElement('div');
+    list.className = 'pack-items';
+    g.items.forEach(function(item, ii){
+      if (!g.warn) totalItems++;
+      var id = 'p-'+gi+'-'+ii;
+      var label = document.createElement('label');
+      label.className = 'pack-item';
+      label.setAttribute('for', id);
+      var checked = saved[id] ? 'checked' : '';
+      label.innerHTML = '<input type="checkbox" id="'+id+'" '+checked+'><span>'+item+'</span>';
+      list.appendChild(label);
+    });
+    wrap.appendChild(list);
+    container.appendChild(wrap);
+  });
+
+  function updateProgress(){
+    var allBoxes = container.querySelectorAll('input[type="checkbox"]');
+    var boxes = container.querySelectorAll('.pack-group:not(.pack-group--warn) input[type="checkbox"]');
+    var checkedCount = 0;
+    var state = {};
+    boxes.forEach(function(b){ if (b.checked) checkedCount++; });
+    allBoxes.forEach(function(b){ state[b.id] = b.checked; });
+    document.getElementById('packCount').textContent = checkedCount + ' / ' + boxes.length;
+    document.getElementById('packFill').style.width = (boxes.length ? checkedCount/boxes.length*100 : 0) + '%';
+    try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch(e){}
+  }
+  container.addEventListener('change', updateProgress);
+  updateProgress();
+})();
+</script>
