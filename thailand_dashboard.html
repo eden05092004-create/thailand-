@@ -474,7 +474,7 @@
     display:flex;align-items:center;justify-content:space-between;gap:10px;
     padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;
   }
-  .reco-custom-item a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;}
+  .reco-custom-item a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
   .reco-empty{font-size:13px;color:var(--text-muted);padding:8px 0;}
 
   @media (max-width:640px){
@@ -1073,13 +1073,15 @@
     <div class="wx-locations" id="recoLocations"></div>
     <div id="recoList"></div>
 
-    <h3 style="font-size:15px;margin:22px 0 8px;">קישורים אישיים (יוטיוב / טיקטוק) ליעד הנבחר</h3>
+    <h3 style="font-size:15px;margin:22px 0 8px;">קישורי טיק טוק / יוטיוב ליעד הנבחר</h3>
+    <div id="recoCustomLinks"></div>
+
+    <h3 style="font-size:15px;margin:22px 0 8px;">הוספת קישור ידנית</h3>
     <div class="custom-expense-form">
       <input type="text" id="recoLinkTitle" placeholder="כותרת / מה רואים בסרטון">
       <input type="url" id="recoLinkUrl" placeholder="קישור (יוטיוב / טיקטוק)">
       <button type="button" id="recoLinkAddBtn">הוסף קישור</button>
     </div>
-    <div id="recoCustomLinks"></div>
   </section>
 
 </div>
